@@ -1,0 +1,20 @@
+{
+  "name": "@monorepo/schedualing-jobs",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "start": "tsx watch index.ts"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "node-schedule": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "@types/node-schedule": "^2.1.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.6"
+  }
+}
