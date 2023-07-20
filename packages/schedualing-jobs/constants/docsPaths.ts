@@ -22,3 +22,13 @@ export const PROCESSED_DOCS_PATH = path.resolve(
   'docs',
   'processed'
 );
+
+export const USERS_JSON_PATH = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  '..',
+  'docs',
+  'users',
+  'users.json'
+);

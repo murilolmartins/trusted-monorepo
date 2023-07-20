@@ -1,29 +1,31 @@
-import { AxiosError } from "axios";
-import { gitHubApi } from "../connection/gitHubApi";
+import { gitHubApi } from '../connection/gitHubApi';
+import { GitHubResponse, IGitHubUser } from '../interfaces/gitHub';
+import logger from '../utils/logger';
 
-export async function getUserDataFromGitHub(usuario: string) {
+import { AxiosError } from 'axios';
 
-    const url = `users/${usuario.trim()}`;
+export async function getUserDataFromGitHub(
+  usuario: string
+): Promise<IGitHubUser | null> {
+  const url = `users/${usuario.trim()}`;
 
-    try {
+  try {
+    const resposta = await gitHubApi.get<GitHubResponse>(url);
 
-      const resposta = await gitHubApi.get(url);
+    logger.info(`Usuário "${usuario}" encontrado no GitHub!`);
 
-      console.log(`Usuário "${usuario}" encontrado no GitHub!`);
-
-      return resposta.data;
-
-    } catch (err) {
-
-
-      if (err instanceof AxiosError && err.response && err.response.status === 404) {
-
-        console.log(`Usuário "${usuario}" não encontrado no GitHub.`);
-
-      } else {
-
-        console.error(`Erro ao consultar usuário "${usuario}":`, err);
-
-      }
+    return resposta.data;
+  } catch (err) {
+    if (
+      err instanceof AxiosError &&
+      err.response &&
+      err.response.status === 404
+    ) {
+      logger.info(`Usuário "${usuario}" não encontrado no GitHub.`);
+    } else {
+      logger.error(`Erro ao consultar usuário "${usuario}":`, err);
     }
+
+    return null;
   }
+}

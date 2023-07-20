@@ -1,3 +1,5 @@
+import logger from '../utils/logger';
+
 import fs from 'node:fs';
 
 export function getTxtDocumentLines(path: string) {
@@ -6,7 +8,7 @@ export function getTxtDocumentLines(path: string) {
     const lines = file.toString().split('\n');
     return lines;
   } catch (err) {
-    console.error('Erro ao ler linhas do documento:', err);
+    logger.error('Erro ao ler linhas do documento:', err);
 
     throw err;
   }

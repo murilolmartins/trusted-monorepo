@@ -11,6 +11,9 @@
       "packages/*"
     ]
   },
+  "scripts": {
+    "schedualing-jobs": "yarn workspace @monorepo/schedualing-jobs start"
+  },
   "devDependencies": {
     "@monorepo/eslint-config": "*"
   },
