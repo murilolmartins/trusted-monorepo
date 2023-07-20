@@ -1,0 +1,14 @@
+{
+  "name": "trusted-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:murilolmartins/trusted-monorepo.git",
+  "author": "Murilo Martins <murilolmartins1@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}
