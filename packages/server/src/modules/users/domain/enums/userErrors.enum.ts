@@ -1,0 +1,3 @@
+export enum UserErrors {
+  ERROR_REGISTERING_USER = 'ERROR_REGISTERING_USER'
+}
