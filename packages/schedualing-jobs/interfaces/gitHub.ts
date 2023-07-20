@@ -18,19 +18,19 @@ export interface IGitHubUser {
   type: string;
   site_admin: boolean;
   name: string;
-  company: string;
-  blog?: any;
-  location: string;
-  email?: any;
-  hireable?: any;
-  bio?: any;
-  twitter_username?: any;
+  comp: string | null;
+  blog: string;
+  location: string | null;
+  email: string | null;
+  hireable: string | null;
+  bio: string | null;
+  twitter_username: string | null;
   public_repos: number;
   public_gists: number;
   followers: number;
   following: number;
-  created_at: Date;
-  updated_at: Date;
+  created_at: string;
+  updated_at: string;
 }
 
 export type GitHubResponse = IGitHubUser;

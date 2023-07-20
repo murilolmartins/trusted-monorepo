@@ -14,7 +14,7 @@ afterAll(async () => {
   await app.close();
 });
 
-describe('RegisterUserRoute', () => {
+describe('RegisterUsersRoute', () => {
   it('should create a new user', async () => {
     const users = { users: ['John Doe', 'Jane Doe'] };
 

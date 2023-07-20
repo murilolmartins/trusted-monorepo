@@ -1,16 +1,69 @@
-import { BaseEntity } from '@/core';
-
-export class UserEntity extends BaseEntity {
+export class UserEntity {
+  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  followers_url: string;
+  following_url: string;
+  gists_url: string;
+  starred_url: string;
+  subscriptions_url: string;
+  organizations_url: string;
+  repos_url: string;
+  events_url: string;
+  received_events_url: string;
+  type: string;
+  site_admin: boolean;
   name: string;
-  email: string;
-  password: string;
-  birthdate: Date;
+  comp: string | null;
+  blog: string;
+  location: string | null;
+  email: string | null;
+  hireable: string | null;
+  bio: string | null;
+  twitter_username: string | null;
+  public_repos: number;
+  public_gists: number;
+  followers: number;
+  following: number;
+  created_at: string;
+  updated_at: string;
 
-  constructor(userData: any) {
-    super();
+  constructor(userData: UserEntity) {
+    this.login = userData.login;
+    this.id = userData.id;
+    this.node_id = userData.node_id;
+    this.avatar_url = userData.avatar_url;
+    this.gravatar_id = userData.gravatar_id;
+    this.url = userData.url;
+    this.html_url = userData.html_url;
+    this.followers_url = userData.followers_url;
+    this.following_url = userData.following_url;
+    this.gists_url = userData.gists_url;
+    this.starred_url = userData.starred_url;
+    this.subscriptions_url = userData.subscriptions_url;
+    this.organizations_url = userData.organizations_url;
+    this.repos_url = userData.repos_url;
+    this.events_url = userData.events_url;
+    this.received_events_url = userData.received_events_url;
+    this.type = userData.type;
+    this.site_admin = userData.site_admin;
     this.name = userData.name;
+    this.comp = userData.comp;
+    this.blog = userData.blog;
+    this.location = userData.location;
     this.email = userData.email;
-    this.password = userData.password;
-    this.birthdate = userData.birthdate;
+    this.hireable = userData.hireable;
+    this.bio = userData.bio;
+    this.twitter_username = userData.twitter_username;
+    this.public_repos = userData.public_repos;
+    this.public_gists = userData.public_gists;
+    this.followers = userData.followers;
+    this.following = userData.following;
+    this.created_at = userData.created_at;
+    this.updated_at = userData.updated_at;
   }
 }

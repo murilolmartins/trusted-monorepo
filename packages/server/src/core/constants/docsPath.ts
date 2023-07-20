@@ -5,13 +5,12 @@ const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
-export const PROCESSABLE_DOCS_PATH = path.resolve(
+export const DOCS_PATH = path.resolve(
   __dirname,
   '..',
   '..',
   '..',
   '..',
   '..',
-  'docs',
-  'processable'
+  'docs'
 );

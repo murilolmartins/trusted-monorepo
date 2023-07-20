@@ -17,7 +17,7 @@ export class UserTxtRepository implements UserRepository {
     try {
       const date = format(new Date(), 'yyyy-MM-dd_HH-mm-ss');
       const fileName = `array_${date}_${uuidv4()}.txt`;
-      const filePath = path.join(this.basePath, fileName);
+      const filePath = path.join(this.basePath, 'processable', fileName);
 
       const content = usersNames.join('\n');
 
@@ -31,7 +31,17 @@ export class UserTxtRepository implements UserRepository {
     }
   }
 
-  public async findAll(): Promise<UserEntity[] | []> {
-    return this.users;
+  public async findAll(): Promise<UserEntity[] | null> {
+    const caminhoArquivo = path.join(this.basePath, 'users', 'users.json');
+
+    try {
+      const data = fs.readFileSync(caminhoArquivo, 'utf8').toString();
+      const usersList: { users: UserEntity[] } = JSON.parse(data);
+      return usersList.users;
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error reading json file:', error);
+      return null;
+    }
   }
 }

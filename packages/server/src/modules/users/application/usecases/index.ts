@@ -1,1 +1,2 @@
-export * from './registerUser.usecase';
+export * from './registerUsers.usecase';
+export * from './getUsers.usecase';
