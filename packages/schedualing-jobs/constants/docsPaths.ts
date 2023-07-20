@@ -1,10 +1,24 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
-export const PROCESSABLE_DOCS_PATH = path.resolve(__dirname, "..", "..","..", "docs", "processable");
+export const PROCESSABLE_DOCS_PATH = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  '..',
+  'docs',
+  'processable'
+);
 
-export const PROCESSED_DOCS_PATH = path.resolve(__dirname, "..", "..","..", "docs", "processed");
+export const PROCESSED_DOCS_PATH = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  '..',
+  'docs',
+  'processed'
+);

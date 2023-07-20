@@ -1,18 +1,17 @@
-import path from "path";
-import { PROCESSABLE_DOCS_PATH } from "../constants";
-import { getTxtDocumentLines } from "./getTxtDocumentLines";
-import { getTxtDocumentsNames } from "./getTxtDocumentsNames";
+import { PROCESSABLE_DOCS_PATH } from '../constants';
+import { getTxtDocumentLines } from './getTxtDocumentLines';
+import { getTxtDocumentsNames } from './getTxtDocumentsNames';
 
-export function getUsersData () {
-    try{
+import path from 'path';
 
-        const documentNames = getTxtDocumentsNames(PROCESSABLE_DOCS_PATH)
+export function getUsersData() {
+  try {
+    const documentNames = getTxtDocumentsNames(PROCESSABLE_DOCS_PATH);
 
-        console.log("documentNames", documentNames)
-    }
-    catch(err){
-        console.error('Erro ao processar os documentos:', err);
+    console.log('documentNames', documentNames);
+  } catch (err) {
+    console.error('Erro ao processar os documentos:', err);
 
-        throw err;
-    }
+    throw err;
+  }
 }
