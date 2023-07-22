@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 
-import { videoListValues } from '@constants';
+import { AlertModalType } from '@enums';
 import { useAlertModal } from '@hooks';
 
+import users from '../../../test/mocks/users.json';
 import { AlertModal } from './AlertModal';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
 const props = {
-  title: videoListValues[0].title,
-  description: videoListValues[0].description,
-  url: videoListValues[0].url
+  title: AlertModalType.SUCCESS,
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 };
 
 const meta: Meta<typeof AlertModal> = {

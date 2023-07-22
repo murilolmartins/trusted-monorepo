@@ -105,12 +105,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     .ant-modal .ant-modal-content {
-      padding: 0px !important;
       border-radius: 15px !important;
-    }
-
-    .alert-modal > .ant-modal-content > .ant-modal-body {
-      padding: 0px !important;
     }
 
     .ant-spin-nested-loading {

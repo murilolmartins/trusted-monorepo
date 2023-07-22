@@ -67,3 +67,10 @@ export default class ConnectionAPI {
 export const connectionAPIGet = async <T>(url: string): Promise<T> => {
   return ConnectionAPI.connect(url, MethodEnum.GET);
 };
+
+export const connectionAPIPost = async <T, B = unknown>(
+  url: string,
+  body: B
+): Promise<T> => {
+  return ConnectionAPI.connect(url, MethodEnum.POST, body);
+};

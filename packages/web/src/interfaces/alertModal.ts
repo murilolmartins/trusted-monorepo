@@ -1,6 +1,3 @@
-import type { IUsersListItem } from './usersList';
+import type { AlertModalType } from '@enums';
 
-export type AlertModalData = Pick<
-  IUsersListItem,
-  'url' | 'title' | 'description'
->;
+export type AlertModalData = { title: AlertModalType; text: string };
