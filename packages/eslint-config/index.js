@@ -39,6 +39,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off", 
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    '@typescript-eslint/consistent-type-imports': 'error',
     "jsx-a11y/aria-props": "warn",
     "jsx-a11y/aria-proptypes": "warn",
     "jsx-a11y/aria-unsupported-elements": "warn",

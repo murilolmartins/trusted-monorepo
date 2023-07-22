@@ -3,6 +3,7 @@ import { AppRoutes } from './routes';
 
 import { zodSchemaValidationErrorParse } from '@/core';
 import { AppError } from '@/core/errors/app.error';
+import cors from '@fastify/cors';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
 import fastify, { type FastifyInstance } from 'fastify';
@@ -27,6 +28,10 @@ const buildApp = async (): Promise<FastifyInstance> => {
 
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
+
+  await app.register(cors, {
+    origin: '*'
+  });
 
   await app.register(fastifySwagger, {
     openapi: {

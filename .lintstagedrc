@@ -1,0 +1,8 @@
+{
+  "src/**/*.+(js|json|ts|tsx)": [
+    "yarn lint"
+  ],
+  "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "prettier --write"
+  ]
+}
