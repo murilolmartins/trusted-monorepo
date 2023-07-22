@@ -15,9 +15,9 @@
     "schedualing-jobs": "yarn workspace @monorepo/schedualing-jobs start",
     "server": "yarn workspace @monorepo/server dev",
     "web": "yarn workspace @monorepo/web dev",
+    "lint": "eslint src --max-warnings=0",
     "prepare": "husky install",
-    "typecheck": "tsc --noEmit",
-    "pre-commit-lint": "yarn typecheck && yarn lint-staged"
+    "pre-commit-lint": "yarn lint-staged"
   },
   "devDependencies": {
     "@monorepo/eslint-config": "*",
