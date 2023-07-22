@@ -27,7 +27,7 @@
       "@hooks": ["hooks/index"],
       "@test": ["test/index"],
       "@utils": ["utils/index"],
-      "@services": ["services/index"],
+      "@services": ["services/index"]
     }
   },
 

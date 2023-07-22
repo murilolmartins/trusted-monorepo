@@ -6,12 +6,11 @@ import { theme, GlobalStyles } from '../src/styles';
 
 import { initialize, mswLoader } from 'msw-storybook-addon';
 import { rest } from 'msw';
-import users from "../src/test/mocks/users.json"
+import users from '../src/test/mocks/users.json';
 
 initialize({
-  onUnhandledRequest: "bypass"
+  onUnhandledRequest: 'bypass'
 });
-
 
 export const decorators = [
   withThemeFromJSXProvider({
@@ -21,7 +20,7 @@ export const decorators = [
     defaultTheme: 'light',
     Provider: ThemeProvider,
     GlobalStyles
-  }),
+  })
 ];
 
 const preview: Preview = {
@@ -36,14 +35,12 @@ const preview: Preview = {
     msw: {
       handlers: {
         users: [
-           rest.get('/api/users', (req, res, ctx) => {
-              return res(
-                ctx.json(users)
-              )
-           }),
-        ],
+          rest.get('/api/users', (req, res, ctx) => {
+            return res(ctx.json(users));
+          })
+        ]
       }
-   }
+    }
   },
   loaders: [mswLoader]
 };
