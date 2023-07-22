@@ -17,7 +17,7 @@ export const PageSectionContainer = styled.section<PageSectionContainerProps>`
     padding: 40px 40px;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
-    padding: 80px 150px;
+    padding: 40px 150px;
   }
   @media only screen and (min-width: 1824px) {
     padding-left: 200px;

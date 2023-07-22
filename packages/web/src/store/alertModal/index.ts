@@ -1,3 +1,4 @@
+import { AlertModalType } from '@enums';
 import type { AlertModalData } from '@interfaces';
 
 import { create } from 'zustand';
@@ -11,9 +12,8 @@ type AlertModalStore = {
 
 const useAlertModalStore = create<AlertModalStore>((set) => ({
   alertModalData: {
-    url: '',
-    title: '',
-    description: ''
+    title: AlertModalType.SUCCESS,
+    text: ''
   },
   isAlertModalOpen: false,
   setAlertModalData: (data) =>

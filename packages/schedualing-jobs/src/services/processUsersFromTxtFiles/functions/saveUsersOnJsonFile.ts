@@ -1,6 +1,6 @@
+import logger from '../../../utils/logger';
 import { USERS_JSON_PATH } from '../constants';
 import type { IUserJsonFile } from '../interfaces/user';
-import logger from '../utils/logger';
 
 import fs from 'node:fs';
 

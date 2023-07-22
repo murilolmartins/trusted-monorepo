@@ -1,6 +1,6 @@
+import logger from '../../../utils/logger';
 import { gitHubApi } from '../connection/gitHubApi';
 import type { GitHubResponse, IGitHubUser } from '../interfaces/gitHub';
-import logger from '../utils/logger';
 
 import { AxiosError } from 'axios';
 

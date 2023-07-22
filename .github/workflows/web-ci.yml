@@ -1,0 +1,147 @@
+name: WEB CI
+
+on:
+  push:
+    branches: ['main']
+    paths: 
+      - "./packages/web/**"
+
+  pull_request:
+    types: [opened, synchronize]
+    branches: ['main']
+    paths: 
+      - "./packages/web/**"
+
+concurrency:
+  group: ci-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+    setup:
+      name: Setup dependencies
+      runs-on: ubuntu-latest
+      timeout-minutes: 10
+      steps:
+        - name: Check out code
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 2
+
+        - name: Setup Node.js environment
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+
+        - name: Restore yarn cache
+          id: yarn-cache
+          uses: actions/cache@v3
+          with:
+            path: |
+              node_modules
+              */*/node_modules
+            key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+            restore-keys: ${{ runner.os }}-yarn-
+
+        - name: Install dependencies
+          if: steps.yarn-cache.outputs.cache-hit != 'true'
+          run: yarn install --frozen-lockfile
+
+    lint:
+      name: Lint check
+      runs-on: ubuntu-latest
+      timeout-minutes: 10
+      needs: [setup]
+      steps:
+        - name: Check out code
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+
+        - name: Setup Node.js environment
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+
+        - name: Restore yarn cache
+          id: yarn-cache
+          uses: actions/cache@v3
+          with:
+            path: |
+              node_modules
+              */*/node_modules
+            key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+            restore-keys: ${{ runner.os }}-yarn-
+
+        - name: Check lint
+          run: yarn lint 
+
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        needs: [setup]
+        steps:
+          - name: Check out code
+            uses: actions/checkout@v3
+            with:
+              fetch-depth: 0
+
+          - name: Setup Node.js environment
+            uses: actions/setup-node@v3
+            with:
+              node-version: 18
+
+          - name: Restore yarn cache
+            id: yarn-cache
+            uses: actions/cache@v3
+            with:
+              path: |
+                node_modules
+                */*/node_modules
+              key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+              restore-keys: ${{ runner.os }}-yarn-
+
+          - name: Build 
+            run: yarn build
+    
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        needs: [setup]
+        steps:
+          - name: Check out code
+            uses: actions/checkout@v3
+            with:
+              fetch-depth: 0
+
+          - name: Setup Node.js environment
+            uses: actions/setup-node@v3
+            with:
+              node-version: 18
+
+          - name: Restore yarn cache
+            id: yarn-cache
+            uses: actions/cache@v3
+            with:
+              path: |
+                node_modules
+                */*/node_modules
+              key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+              restore-keys: ${{ runner.os }}-yarn-
+
+          - name: Test 
+            run: yarn test
+
+    # sonarcloud:
+    #     name: SonarCloud
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #       - uses: actions/checkout@v3
+    #         with:
+    #           fetch-depth: 0  
+    #       - name: SonarCloud Scan
+    #         uses: SonarSource/sonarcloud-github-action@master
+    #         env:
+    #           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+    #           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

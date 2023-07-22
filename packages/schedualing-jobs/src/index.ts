@@ -1,4 +1,4 @@
-import { getUsersData } from './functions/getUsersData';
+import { processUsersFromTxtFiles } from './services/processUsersFromTxtFiles';
 import logger from './utils/logger';
 
 import schedule from 'node-schedule';
@@ -8,14 +8,14 @@ import schedule from 'node-schedule';
 
   logger.info('Buscando usuários pela primeira vez....');
 
-  getUsersData().catch(() => {
+  processUsersFromTxtFiles().catch(() => {
     process.exit(1);
   });
 
   const getUsersjob = schedule.scheduleJob('*/1 * * * *', () => {
     logger.info('Iniciando nova busca por novos usuários.');
 
-    getUsersData().catch(() => {
+    processUsersFromTxtFiles().catch(() => {
       getUsersjob.cancel();
       process.exit(1);
     });

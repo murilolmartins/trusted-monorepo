@@ -3,6 +3,8 @@ import dynamic from 'next/dynamic';
 import { PageSection } from '@components-common';
 import { theme } from '@styles';
 
+import { HomeRegisterUsers } from './RegisterUsers/HomeRegisterUsers';
+
 import { Spin } from 'antd';
 
 const HomeUsersList = dynamic(() => import('./UsersList/HomeUsersList'), {
@@ -18,6 +20,7 @@ const HomeLayout = () => {
   return (
     <>
       <HomeUsersList />
+      <HomeRegisterUsers />
     </>
   );
 };

@@ -1,9 +1,9 @@
-import type { UsersApiResponse } from '@interfaces';
+import type { GetUsersApiResponse } from '@interfaces';
 
 import { connectionAPIGet } from '@utils';
 
 export async function getUsers() {
-  const { data } = await connectionAPIGet<UsersApiResponse>('/users');
+  const { data } = await connectionAPIGet<GetUsersApiResponse>('/users');
 
   return data;
 }

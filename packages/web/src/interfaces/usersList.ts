@@ -33,6 +33,14 @@ export interface IUsersListItem {
   updated_at: string;
 }
 
-export interface UsersApiResponse {
+export interface GetUsersApiResponse {
+  status: number;
   data: IUsersListItem[];
+  errors: null;
+}
+
+export interface PostUsersApiResponse {
+  status: number;
+  data: { message: string };
+  errors: null;
 }

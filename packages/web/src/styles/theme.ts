@@ -62,7 +62,8 @@ export default {
     primary: '#6EC1E4',
     cyan_400: '#858da8',
     black: '#2c3e50',
-    blue_700: '#1D1A4E'
+    blue_700: '#1D1A4E',
+    red_400: '#ff0000'
   },
   gaps: {
     small: '6px',

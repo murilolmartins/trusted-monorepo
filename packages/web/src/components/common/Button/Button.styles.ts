@@ -9,7 +9,7 @@ const secondary = css`
   border: 1px solid ${({ theme }) => theme.colors.black};
   :hover {
     color: ${({ theme }) => theme.colors.primary};
-    border: 1px solid ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.primary} !important;
   }
   :focus {
     background-color: ${({ theme }) => theme.colors.primary};
