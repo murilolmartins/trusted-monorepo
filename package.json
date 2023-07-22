@@ -15,7 +15,7 @@
     "schedualing-jobs": "yarn workspace @monorepo/schedualing-jobs start",
     "server": "yarn workspace @monorepo/server dev",
     "web": "yarn workspace @monorepo/web dev",
-    "lint": "eslint src --max-warnings=0",
+    "lint": "eslint packages --max-warnings=0",
     "prepare": "husky install",
     "pre-commit-lint": "yarn lint-staged"
   },

@@ -1,8 +1,10 @@
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import React from 'react';
 
 import { theme } from '@styles';
 
-import { render, RenderOptions } from '@testing-library/react';
+import type { RenderOptions } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {

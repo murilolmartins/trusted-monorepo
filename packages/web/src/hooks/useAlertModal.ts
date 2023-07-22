@@ -1,20 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback } from 'react';
 
-import { AlertModalData } from '@interfaces';
+import type { AlertModalData } from '@interfaces';
 
 import useAlertModalStore from 'store/alertModal';
 
 const useAlertModal = () => {
   const {
-    videoModalData,
+    alertModalData,
     isAlertModalOpen,
     setAlertModalData,
     setIsAlertModalOpen
   } = useAlertModalStore();
 
-  const handleOpenAlertModal = useCallback((videoData: AlertModalData) => {
-    setAlertModalData(videoData);
+  const handleOpenAlertModal = useCallback((alertData: AlertModalData) => {
+    setAlertModalData(alertData);
     setIsAlertModalOpen(true);
   }, []);
 
@@ -26,7 +26,7 @@ const useAlertModal = () => {
   }, []);
 
   return {
-    videoModalData,
+    alertModalData,
     isAlertModalOpen,
     handleOpenAlertModal,
     handleCloseAlertModal

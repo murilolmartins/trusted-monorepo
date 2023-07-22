@@ -1,4 +1,5 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import type { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 const api = axios.create({
   baseURL: process.env.API_URL
@@ -47,6 +48,7 @@ export default class ConnectionAPI {
     body?: B
   ): Promise<T> {
     return this.call<T>(url, method, body).catch((error) => {
+      // eslint-disable-next-line no-console
       console.log(error);
       if (error.response) {
         switch (error.response.status) {

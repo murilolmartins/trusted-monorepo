@@ -1,5 +1,5 @@
 import { UsersCategory } from '@enums';
-import { IUsersListItem } from '@interfaces';
+import type { IUsersListItem } from '@interfaces';
 
 export const videoListValues: IUsersListItem[] = Object.values(UsersCategory)
   .map((category) =>

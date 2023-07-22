@@ -1,16 +1,16 @@
-import { AlertModalData } from '@interfaces';
+import type { AlertModalData } from '@interfaces';
 
 import { create } from 'zustand';
 
 type AlertModalStore = {
-  videoModalData: AlertModalData;
+  alertModalData: AlertModalData;
   isAlertModalOpen: boolean;
   setAlertModalData: (data: AlertModalData) => void;
   setIsAlertModalOpen: (isOpen: boolean) => void;
 };
 
 const useAlertModalStore = create<AlertModalStore>((set) => ({
-  videoModalData: {
+  alertModalData: {
     url: '',
     title: '',
     description: ''
@@ -19,7 +19,7 @@ const useAlertModalStore = create<AlertModalStore>((set) => ({
   setAlertModalData: (data) =>
     set((state) => ({
       ...state,
-      videoModalData: data
+      alertModalData: data
     })),
   setIsAlertModalOpen: (isOpen: boolean) =>
     set((state) => ({

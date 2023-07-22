@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { UsersApiResponse } from '@interfaces';
+import type { UsersApiResponse } from '@interfaces';
 
 import users from 'db/users.json';
 

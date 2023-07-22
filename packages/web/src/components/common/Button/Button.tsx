@@ -2,7 +2,7 @@ import { ButtonType } from '@enums';
 
 import * as S from './Button.styles';
 
-import { ButtonProps as ButtonAntdProps } from 'antd';
+import type { ButtonProps as ButtonAntdProps } from 'antd';
 
 interface ButtonProps extends ButtonAntdProps {
   buttontype?: ButtonType;

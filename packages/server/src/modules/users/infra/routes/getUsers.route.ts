@@ -1,4 +1,4 @@
-import { UserEntity } from '../../domain/entities';
+import type { UserEntity } from '../../domain/entities';
 import { getUsersController } from '../controllers/getUsers.controller';
 
 import { type FastifyResponse } from '@/core';

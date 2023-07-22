@@ -1,4 +1,4 @@
-import { UserEntity } from '../../domain/entities';
+import type { UserEntity } from '../../domain/entities';
 import { UserErrors } from '../../domain/enums';
 import type { UserRepository } from '../repositories';
 

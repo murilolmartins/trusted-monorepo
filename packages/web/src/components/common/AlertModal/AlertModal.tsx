@@ -5,8 +5,7 @@ import { AlertModalBody } from './components';
 import { Modal } from 'antd';
 
 const AlertModal = () => {
-  const { isAlertModalOpen, handleCloseAlertModal, videoModalData } =
-    useAlertModal();
+  const { isAlertModalOpen, handleCloseAlertModal } = useAlertModal();
   return (
     <Modal
       open={isAlertModalOpen}
