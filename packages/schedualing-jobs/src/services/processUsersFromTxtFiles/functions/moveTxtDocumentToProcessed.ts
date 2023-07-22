@@ -1,5 +1,5 @@
+import logger from '../../../utils/logger';
 import { PROCESSABLE_DOCS_PATH, PROCESSED_DOCS_PATH } from '../constants';
-import logger from '../utils/logger';
 
 import fs from 'node:fs';
 import path from 'node:path';

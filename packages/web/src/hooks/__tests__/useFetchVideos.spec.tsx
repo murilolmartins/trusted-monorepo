@@ -1,7 +1,8 @@
+import users from '../../test/mocks/users.json';
+
 import * as ReactQuery from '@tanstack/react-query';
 import { ReactQueryWrapper } from '@test';
 import { renderHook, waitFor } from '@testing-library/react';
-import users from 'db/users.json';
 import { useFetchUsers } from 'hooks/useFetchUsers';
 
 jest.spyOn(ReactQuery, 'useQuery').mockImplementation(

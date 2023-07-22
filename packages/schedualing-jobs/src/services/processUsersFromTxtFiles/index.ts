@@ -1,15 +1,15 @@
-import { PROCESSABLE_DOCS_PATH } from '../constants';
-import type { IGitHubUser } from '../interfaces/gitHub';
-import logger from '../utils/logger';
-import { addUsersToJson } from './addUserToJson';
-import { getTxtDocumentLines } from './getTxtDocumentLines';
-import { getTxtDocumentsNames } from './getTxtDocumentsNames';
-import { getUserDataFromGitHub } from './getUserDataFromGitHub';
-import { moveTxtDocumentToProcessed } from './moveTxtDocumentToProcessed';
+import logger from '../../utils/logger';
+import { PROCESSABLE_DOCS_PATH } from './constants';
+import { addUsersToJson } from './functions/addUserToJson';
+import { getTxtDocumentLines } from './functions/getTxtDocumentLines';
+import { getTxtDocumentsNames } from './functions/getTxtDocumentsNames';
+import { getUserDataFromGitHub } from './functions/getUserDataFromGitHub';
+import { moveTxtDocumentToProcessed } from './functions/moveTxtDocumentToProcessed';
+import type { IGitHubUser } from './interfaces/gitHub';
 
 import path from 'path';
 
-export async function getUsersData() {
+export async function processUsersFromTxtFiles() {
   try {
     const documentNames = getTxtDocumentsNames(PROCESSABLE_DOCS_PATH);
 

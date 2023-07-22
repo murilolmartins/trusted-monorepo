@@ -14,6 +14,7 @@ const HomeUsersList = () => {
   return (
     <PageSection>
       <S.HomeUsersListContainer>
+        <S.HomeUsersListTitle>Lista de usuários</S.HomeUsersListTitle>
         <HomeUsersListHeader>
           <HomeUsersListOrderSelect
             handleOrderSearchUsers={handleFilterSearchUsers}
