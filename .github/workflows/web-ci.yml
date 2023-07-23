@@ -3,11 +3,15 @@ name: WEB CI
 on:
   push:
     branches: ['main']
+    paths:
+      - 'packages/web/**'
     
 
   pull_request:
     types: [opened, synchronize]
     branches: ['main']
+    paths:
+      - 'packages/web/**'
    
 
 concurrency:
