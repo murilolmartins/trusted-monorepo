@@ -1,13 +1,18 @@
-name: DOCS CI
+name: SCHEDUALING-JOBS CI
 
 on:
   push:
     branches: ['main']
-  
+    paths:
+      - 'packages/schedualing-jobs/**'
+    
+
   pull_request:
     types: [opened, synchronize]
     branches: ['main']
-    
+    paths:
+      - 'packages/schedualing-jobs/**'
+
 
 jobs:
     setup:
@@ -38,8 +43,8 @@ jobs:
         - name: Install dependencies
           if: steps.yarn-cache.outputs.cache-hit != 'true'
           run: yarn install --frozen-lockfile
-    
-     name: Test
+    test:
+        name: Test
         runs-on: ubuntu-latest
         timeout-minutes: 10
         needs: [setup]
