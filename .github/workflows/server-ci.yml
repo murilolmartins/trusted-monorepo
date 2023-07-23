@@ -14,9 +14,6 @@ on:
       - 'packages/server/**'
    
 
-concurrency:
-  group: ci-${{ github.head_ref }}
-  cancel-in-progress: false
 
 jobs:
     setup:

@@ -8,9 +8,6 @@ on:
     types: [opened, synchronize]
     branches: ['main']
     
-concurrency:
-  group: ci-${{ github.head_ref }}
-  cancel-in-progress: false
 
 jobs:
     setup:
