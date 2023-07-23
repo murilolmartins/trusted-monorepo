@@ -2,7 +2,7 @@ module.exports = {
   // This will lint and format TypeScript and JavaScript files
   './**/*.(ts|tsx|js|jsx)': (filenames) => [
     `yarn prettier --write ${filenames.join(' ')}`,
-    `yarn eslint --fix ${filenames.join(' ')}`
+    `yarn eslint --fix ${filenames.join(' ')} --max-warnings=0`
   ],
 
   './**/*.(ts|tsx)': (filenames) => [
