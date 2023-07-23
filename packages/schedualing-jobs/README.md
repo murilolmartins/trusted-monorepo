@@ -1,6 +1,6 @@
-# server
+# Schedualing Jobs
 
-Node.js + Fastify.
+Node.js + Typescript.
 
 # Comandos de inicialização
 
