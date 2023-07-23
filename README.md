@@ -16,11 +16,11 @@ execute o comando para instalar as dependencias:
 
 - Iniciar todos os apps
 
-  yarn dev:all
+      yarn dev:all
 
 - Testar todos os apps
 
-  yarn test:all
+      yarn test:all
 
 Voce tambem pode rodar os comandos de inicialização e teste de cada app individualmente, basta digitar:
 
