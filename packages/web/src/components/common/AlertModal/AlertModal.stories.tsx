@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { AlertModalType } from '@enums';
 import { useAlertModal } from '@hooks';
 
-import users from '../../../test/mocks/users.json';
 import { AlertModal } from './AlertModal';
 
 import type { Meta, StoryObj } from '@storybook/react';
