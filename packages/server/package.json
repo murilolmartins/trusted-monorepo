@@ -1,18 +1,18 @@
 {
   "name": "@monorepo/server",
   "version": "1.0.0",
-  "description": "My node server",
-  "main": "index.ts",
-  "repository": "git@github.com:murilolmartins/trusted-monorepo/packages/service",
-  "author": "Murilo Martins <murilolmartins1@gmail.com>",
-  "license": "MIT",
   "private": false,
+  "description": "My node server",
+  "repository": "git@github.com:murilolmartins/trusted-monorepo/packages/service",
+  "license": "MIT",
+  "author": "Murilo Martins <murilolmartins1@gmail.com>",
+  "main": "index.ts",
   "scripts": {
     "dev": "tsx watch src/infra/server.ts ",
     "lint": "npx eslint src --ext .ts --fix --max-warnings=0",
-    "test": "jest -i",
-    "typecheck": "tsc --noEmit",
-    "ncu": "ncu -i --dep prod,dev --format group -p yarn"
+    "ncu": "ncu -i --dep prod,dev --format group -p yarn",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fastify/cors": "^8.3.0",

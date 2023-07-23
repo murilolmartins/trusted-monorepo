@@ -2,10 +2,6 @@
 
 Next.js + Styled Components.
 
-## Link do deploy
-
-https://leadster-test-nine.vercel.app/
-
 # Comandos de inicialização
 
 - Iniciar app
