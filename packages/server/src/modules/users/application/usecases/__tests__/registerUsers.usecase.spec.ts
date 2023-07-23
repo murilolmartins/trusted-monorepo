@@ -3,7 +3,10 @@ import { UserTxtRepository } from '@/modules/users/infra/repositories';
 import type { UserRepository } from '../../repositories';
 import { RegisterUsersUseCase } from '../registerUsers.usecase';
 
-import { MOCK_DOCS_PATH } from '@test/mocks/docs/docsPath';
+import { deleteMockDocsFolder } from '@test/utils';
+import { clearProcessableFolder } from '@test/utils/clearProcessableFolder';
+import { createMockDocsFolder } from '@test/utils/createMockDocsFolder';
+import { MOCK_DOCS_PATH } from '@test/utils/docsPath';
 import fs from 'node:fs';
 import path from 'node:path';
 import timekepper from 'timekeeper';
@@ -13,11 +16,17 @@ let userRepository: UserRepository;
 
 beforeAll(() => {
   timekepper.freeze(new Date('2023-07-03 00:00:00'));
+  createMockDocsFolder();
 });
 
 beforeEach(() => {
   userRepository = new UserTxtRepository(MOCK_DOCS_PATH);
   registerUsersUseCase = new RegisterUsersUseCase(userRepository);
+  clearProcessableFolder();
+});
+
+afterAll(() => {
+  deleteMockDocsFolder();
 });
 
 describe('RegisterUsersUseCase', () => {
