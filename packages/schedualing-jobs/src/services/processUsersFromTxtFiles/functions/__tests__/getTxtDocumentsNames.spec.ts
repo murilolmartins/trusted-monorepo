@@ -3,6 +3,7 @@ import {
   createMockDocsFolder,
   deleteMockDocsFolder
 } from '../../../../../tests/utils';
+import { MOCK_DOCS_PATH } from '../../../../../tests/utils/docsPath';
 // import { MOCK_DOCS_PATH } from '../../../../../tests/utils/docsPath';
 import { getTxtDocumentsNames } from '../getTxtDocumentsNames';
 

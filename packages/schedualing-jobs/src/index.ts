@@ -12,7 +12,7 @@ import schedule from 'node-schedule';
     process.exit(1);
   });
 
-  const getUsersjob = schedule.scheduleJob('*/1 * * * *', () => {
+  const getUsersjob = schedule.scheduleJob('*/10 * * * *', () => {
     logger.info('Iniciando nova busca por novos usuários.');
 
     processUsersFromTxtFiles().catch(() => {

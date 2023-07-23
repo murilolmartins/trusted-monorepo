@@ -114,6 +114,7 @@
     "dist",
     "src/**/__tests__",
     "tests",
-    "jest.config.ts"
+    "jest.config.ts",
+    "interfaces"
   ]
 }
