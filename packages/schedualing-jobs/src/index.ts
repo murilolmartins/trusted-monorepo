@@ -27,7 +27,7 @@ import { AsyncTask, SimpleIntervalJob, ToadScheduler } from 'toad-scheduler';
     }
   );
 
-  const job = new SimpleIntervalJob({ minutes: 1 }, task, {
+  const job = new SimpleIntervalJob({ minutes: 10 }, task, {
     id: 'id_1',
     preventOverrun: true
   });
