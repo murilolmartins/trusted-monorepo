@@ -1,4 +1,4 @@
-import users from '../../../db/users.json';
+import users from '../../../test/mocks/users.json';
 import { HomeLayout } from './HomeLayout';
 
 import type { Meta, StoryObj } from '@storybook/react';
