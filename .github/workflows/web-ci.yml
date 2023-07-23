@@ -42,7 +42,7 @@ jobs:
 
         - name: Install dependencies
           if: steps.yarn-cache.outputs.cache-hit != 'true'
-          run: yarn web install --frozen-lockfile
+          run: yarn install --frozen-lockfile
 
     lint:
       name: Lint check
