@@ -6,11 +6,14 @@
   "repository": "git@github.com:murilolmartins/trusted-monorepo/packages/service",
   "license": "MIT",
   "author": "Murilo Martins <murilolmartins1@gmail.com>",
-  "main": "index.ts",
+  "type": "module",
+  "main": "src/index.ts",
   "scripts": {
+    "build": "tsc",
     "dev": "tsx watch src/infra/server.ts ",
     "lint": "npx eslint src --ext .ts --fix --max-warnings=0",
     "ncu": "ncu -i --dep prod,dev --format group -p yarn",
+    "start": "node dist/index.js",
     "test": "jest",
     "typecheck": "tsc --noEmit"
   },

@@ -15,7 +15,7 @@ export const useRegisterUsers = () => {
     onSuccess: () => {
       handleOpenAlertModal({
         title: AlertModalType.SUCCESS,
-        text: 'Todos os usuários foram cadastrados com sucesso.'
+        text: 'Todos os usuários foram cadastrados com sucesso. Dentro de no maximo 10 minutos eles estarão disponíveis na lista.'
       });
       handleResetUsersLogin();
     },

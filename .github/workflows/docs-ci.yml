@@ -1,0 +1,73 @@
+name: DOCS CI
+
+on:
+  push:
+    branches: ['main']
+    paths:
+      - 'packages/schedualing-jobs/**'
+    
+
+  pull_request:
+    types: [opened, synchronize]
+    branches: ['main']
+    paths:
+      - 'packages/schedualing-jobs/**'
+
+
+jobs:
+    setup:
+      name: Setup dependencies
+      runs-on: ubuntu-latest
+      timeout-minutes: 10
+      steps:
+        - name: Check out code
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 2
+
+        - name: Setup Node.js environment
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+
+        - name: Restore yarn cache
+          id: yarn-cache
+          uses: actions/cache@v3
+          with:
+            path: |
+              node_modules
+              */*/node_modules
+            key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+            restore-keys: ${{ runner.os }}-yarn-
+
+        - name: Install dependencies
+          if: steps.yarn-cache.outputs.cache-hit != 'true'
+          run: yarn install --frozen-lockfile
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        needs: [setup]
+        steps:
+          - name: Check out code
+            uses: actions/checkout@v3
+            with:
+              fetch-depth: 0
+
+          - name: Setup Node.js environment
+            uses: actions/setup-node@v3
+            with:
+              node-version: 18
+
+          - name: Restore yarn cache
+            id: yarn-cache
+            uses: actions/cache@v3
+            with:
+              path: |
+                node_modules
+                */*/node_modules
+              key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+              restore-keys: ${{ runner.os }}-yarn-
+
+          - name: Test 
+            run: yarn test:docs

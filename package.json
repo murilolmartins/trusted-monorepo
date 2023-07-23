@@ -19,6 +19,7 @@
     "schedualing-jobs": "yarn workspace @monorepo/schedualing-jobs",
     "server": "yarn workspace @monorepo/server",
     "test:all": "npx lerna run test --stream --parallel",
+    "test:docs": "yarn jest docs",
     "web": "yarn workspace @monorepo/web"
   },
   "dependencies": {},

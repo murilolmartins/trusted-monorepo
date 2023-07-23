@@ -1,17 +1,17 @@
-name: WEB CI
+name: SCHEDUALING-JOBS CI
 
 on:
   push:
     branches: ['main']
     paths:
-      - 'packages/web/**'
+      - 'packages/schedualing-jobs/**'
     
 
   pull_request:
     types: [opened, synchronize]
     branches: ['main']
     paths:
-      - 'packages/web/**'
+      - 'packages/schedualing-jobs/**'
 
 
 jobs:
@@ -71,7 +71,7 @@ jobs:
             restore-keys: ${{ runner.os }}-yarn-
 
         - name: Check lint
-          run: yarn web lint 
+          run: yarn server lint 
 
     build:
         name: Build
@@ -100,7 +100,7 @@ jobs:
               restore-keys: ${{ runner.os }}-yarn-
 
           - name: Build 
-            run: yarn web build
+            run: yarn server build
     
     test:
         name: Test
@@ -129,17 +129,4 @@ jobs:
               restore-keys: ${{ runner.os }}-yarn-
 
           - name: Test 
-            run: yarn web test
-
-    # sonarcloud:
-    #     name: SonarCloud
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #       - uses: actions/checkout@v3
-    #         with:
-    #           fetch-depth: 0  
-    #       - name: SonarCloud Scan
-    #         uses: SonarSource/sonarcloud-github-action@master
-    #         env:
-    #           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-    #           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            run: yarn server test

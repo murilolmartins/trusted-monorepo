@@ -2,10 +2,12 @@
   "name": "@monorepo/schedualing-jobs",
   "version": "1.0.0",
   "license": "MIT",
-  "type": "commonjs",
+  "type": "module",
   "main": "src/index.ts",
   "scripts": {
+    "build": "tsc",
     "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
     "test": "jest",
     "typecheck": "tsc --noEmit"
   },
