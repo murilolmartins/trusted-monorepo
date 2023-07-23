@@ -5,6 +5,10 @@ module.exports = {
     `yarn eslint --fix ${filenames.join(' ')}`
   ],
 
+  './**/*.(ts|tsx)': (filenames) => [
+    `yarn tsc --noEmit ${filenames.join(' ')}`
+  ],
+
   // This will Format MarkDown and JSON
   './**/*.(md|json)': (filenames) =>
     `yarn prettier --write ${filenames.join(' ')}`,
