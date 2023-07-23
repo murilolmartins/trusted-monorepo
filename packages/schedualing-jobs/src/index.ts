@@ -1,7 +1,7 @@
 import { processUsersFromTxtFiles } from './services/processUsersFromTxtFiles';
 import logger from './utils/logger';
 
-import schedule from 'node-schedule';
+import { AsyncTask, SimpleIntervalJob, ToadScheduler } from 'toad-scheduler';
 
 (() => {
   logger.info('Inicializando serviço de agendamento de tarefas.');
@@ -12,12 +12,25 @@ import schedule from 'node-schedule';
     process.exit(1);
   });
 
-  const getUsersjob = schedule.scheduleJob('*/10 * * * *', () => {
-    logger.info('Iniciando nova busca por novos usuários.');
+  const scheduler = new ToadScheduler();
 
-    processUsersFromTxtFiles().catch(() => {
-      getUsersjob.cancel();
+  const task = new AsyncTask(
+    'processUsers',
+    async () => {
+      logger.info('Nova busca de usuários iniciada.');
+      await processUsersFromTxtFiles();
+    },
+    () => {
+      logger.info('Tarefa de busca de usuários finalizando.');
+      scheduler.stop();
       process.exit(1);
-    });
+    }
+  );
+
+  const job = new SimpleIntervalJob({ minutes: 1 }, task, {
+    id: 'id_1',
+    preventOverrun: true
   });
+
+  scheduler.addSimpleIntervalJob(job);
 })();

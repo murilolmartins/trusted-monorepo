@@ -2,9 +2,9 @@
 
 O repositorio contem os seguintes apps:
 
-- `server`: API RESTful
-- `web`: Frontend web
-- `schedualing-jobs`: Serviço de agendamento de jobs
+- `server`: API REST com fastify - NodeJS e Typescript
+- `web`: Frontend web - NextJS e Typescript
+- `schedualing-jobs`: Serviço de agendamento de jobs - NodeJS e Typescript
 
 Para iniciar o projeto voce deve ter o node e o yarn instalados.
 
